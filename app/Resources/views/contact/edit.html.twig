@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            <a href="{{ path('home') }}" class="btn btn-info">
+                Back
+            </a>
+        </div>
+    </div>
+{% endblock %}

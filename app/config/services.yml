@@ -2,7 +2,7 @@
 # https://symfony.com/doc/current/service_container.html
 parameters:
     #parameter_name: value
-
+    contact_image_directory: '%kernel.project_dir%/web/uploads/contact_images'
 services:
     # default configuration for services in *this* file
     _defaults:

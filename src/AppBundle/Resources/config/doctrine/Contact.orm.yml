@@ -1,0 +1,45 @@
+AppBundle\Entity\Contact:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: '100'
+            column: first_name
+        lastName:
+            type: string
+            length: '100'
+            column: last_name
+        address:
+            type: text
+        zipCode:
+            type: string
+            length: '10'
+            column: zip_code
+        city:
+            type: string
+            length: '100'
+        country:
+            type: string
+            length: '100'
+        phone:
+            type: string
+            length: '50'
+        birthDate:
+            type: date
+            column: birth_date
+        email:
+            type: string
+            length: '50'
+        image:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

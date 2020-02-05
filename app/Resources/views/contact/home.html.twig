@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AddressBook - Home Page{% endblock %}
+
+{% block body %}
+    <div class="notes-container">
+        <h2 class="notes-header">Contacts</h2>
+        <div><a href="add"><i class="fa fa-plus plus-btn"></i></a></div>
+    </div>
+    <section id="cd-timeline">
+        {% for contact in contacts %}
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img">
+                    <img src="{{ asset('uploads/contact_images/') }}{{ contact.image }}" class="img-circle" alt="Leanna!">
+                    <span><a href="/contact/edit/{{ contact.id }}"><i class="fa fa-pencil plus-btn"></i></a></span>
+                    <span><a href="/contact/del/{{ contact.id }}"><i class="fa fa-remove plus-btn"></i></a></span>
+                </div>
+                <div class="cd-timeline-content">
+                    <h2><a href="/contact/view/{{ contact.id }}">{{ contact.firstName }} {{ contact.lastName }}</a></h2>
+                    <dl class="contact-details-list">
+                        <dt>Address</dt>
+                        <dd>
+                            {{ contact.address }},
+                            {{ contact.city }},
+                            {{ contact.country }},
+                            {{ contact.zipCode }}
+                        </dd>
+                        <dt>Contact Detail:</dt>
+                        <dd>{{ contact.phone }}, {{ contact.email }}</dd>
+                    </dl>
+                    <span class="cd-date">{{ contact.firstName }} {{ contact.lastName }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

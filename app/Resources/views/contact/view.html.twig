@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Contacts {% endblock %}
+
+{% block body %}
+        <h2 class="contact-name">{{ contact.firstName }} {{ contact.lastName}}</h2>
+        <div class="sea-creature-container">
+                <div class="photo">
+                        <img src="{{ asset('uploads/contact_images/') }}{{ contact.image }}" alt="{{ contact.firstName }}'s pic">
+                </div>
+                <div class="contact-details">
+                        <dl class="contact-details-list">
+                                <dt>Email:</dt>
+                                <dd>{{ contact.email }}</dd>
+                                <dt>Phone:</dt>
+                                <dd>{{ contact.phone }}</dd>
+                                <dt>Address:</dt>
+                                <dd>{{ contact.address }}</dd>
+                                <dt>zipCode:</dt>
+                                <dd>{{ contact.zipCode }}</dd>
+                                <dt>city:</dt>
+                                <dd>{{ contact.city }}</dd>
+                                <dt>country:</dt>
+                                <dd>{{ contact.country }}</dd>
+                        </dl>
+                </div>
+        </div>
+        <a href="{{ path('home') }}" class="btn btn-info">
+                Back
+        </a>
+
+{% endblock %}
