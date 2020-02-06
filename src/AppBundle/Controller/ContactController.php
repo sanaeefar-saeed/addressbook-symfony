@@ -38,7 +38,7 @@ class ContactController extends Controller
     }
 
     /**
-     * @Route("/add", name="addContact")
+     * @Route("/contact/add", name="addContact")
      * @param Request $request
      * @param FileUploader $fileUploader
      * @return RedirectResponse|Response
