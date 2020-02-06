@@ -6,7 +6,6 @@ namespace AppBundle\Controller;
 use AppBundle\Service\FileUploader;
 use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactForm;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\File;
@@ -160,11 +159,20 @@ class ContactController extends Controller
             return $this->redirectToRoute('home');
         }
 
+        $image_path = $contact->getImage();
+        try {
+            $contact->setImage(
+                new File($this->getParameter('contact_image_directory') . '/' . $contact->getImage())
+            );
+        } catch (\Exception $exception) {
+        }
+
         $form = $this->createForm(ContactForm::class, $contact);
         $form->handleRequest($request);
 
         return $this->render('contact/view.html.twig', array(
-            'contact' => $contact
+            'contact' => $contact,
+            'image_path' => $image_path
         ));
     }
 

@@ -6,7 +6,12 @@
         <h2 class="contact-name">{{ contact.firstName }} {{ contact.lastName}}</h2>
         <div class="sea-creature-container">
                 <div class="photo">
-                        <img src="{{ asset('uploads/contact_images/') }}{{ contact.image }}" alt="{{ contact.firstName }}'s pic">
+                        {% if contact.image != '' %}
+                                {% set image_src = asset('uploads/contact_images/') ~ image_path %}
+                        {% else %}
+                                {% set image_src = asset('uploads/contact_images/user.jpeg') %}
+                        {% endif %}
+                        <img src="{{ image_src }}" class="img-circle" alt="{{ contact.firstName }}'s pic">
                 </div>
                 <div class="contact-details">
                         <dl class="contact-details-list">

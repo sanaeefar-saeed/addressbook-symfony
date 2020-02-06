@@ -11,7 +11,12 @@
         {% for contact in contacts %}
             <div class="cd-timeline-block">
                 <div class="cd-timeline-img">
-                    <img src="{{ asset('uploads/contact_images/') }}{{ contact.image }}" class="img-circle" alt="Leanna!">
+                    {% if contact.image != ''%}
+                        {% set image_src = asset('uploads/contact_images/') ~ contact.image %}
+                    {% else %}
+                        {% set image_src = asset('uploads/contact_images/user.jpeg') %}
+                    {% endif %}
+                    <img src="{{ image_src }}" class="img-circle" alt="{{ contact.firstName }}'s pic">
                     <span><a href="/contact/edit/{{ contact.id }}"><i class="fa fa-pencil plus-btn"></i></a></span>
                     <span><a href="/contact/del/{{ contact.id }}"><i class="fa fa-remove plus-btn"></i></a></span>
                 </div>
