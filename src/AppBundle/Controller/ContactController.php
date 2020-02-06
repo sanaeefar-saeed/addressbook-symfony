@@ -6,7 +6,6 @@ namespace AppBundle\Controller;
 use AppBundle\Service\FileUploader;
 use AppBundle\Entity\Contact;
 use AppBundle\Form\ContactForm;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -23,7 +22,6 @@ class ContactController extends Controller
 {
     /**
      * @Route("/", name="home")
-     * @Method("GET")
      * @return Response
      */
     public function homeAction(): Response
